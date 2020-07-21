@@ -1,0 +1,2 @@
+[0719/230609.061:INFO:content_main_runner_impl.cc(940)] Chrome is running in full browser mode.
+[0719/230609.138:FATAL:field_trial.cc(445)] Check failed: !global_. 

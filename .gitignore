@@ -1,0 +1,5 @@
+Build/
+cefmfcdemo/.vs/
+cefmfcdemo/Debug/libcef.dll
+cefmfcdemo/Debug/cef_sandbox.lib
+cefmfcdemo/Release/libcef.dll
