@@ -56,6 +56,7 @@ CefMfcdDemoApp theApp;
 
 BOOL CefMfcdDemoApp::InitInstance()
 {
+	m_bCEFInitialized = false;
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -138,7 +139,8 @@ int CefMfcdDemoApp::ExitInstance()
 
 BOOL CefMfcdDemoApp::OnIdle(LONG lCount)
 {
-	CefDoMessageLoopWork();
+	if(m_bCEFInitialized)
+		CefDoMessageLoopWork();
 	return CWinApp::OnIdle(lCount);
 }
 
@@ -207,14 +209,18 @@ void CefMfcdDemoApp::InitializeCef()
    settings.multi_threaded_message_loop = false;
    settings.log_severity = LOGSEVERITY_DEFAULT;
    CefString(&settings.log_file) = sLog;
+      
+   m_bCEFInitialized = CefInitialize(mainargs, settings, m_app, nullptr);
 
-   
-  BOOL dave =  CefInitialize(mainargs, settings, m_app, nullptr);
-  dave = false;
 }
 
 void CefMfcdDemoApp::UninitializeCef()
 {
-   CefShutdown();
+	if (m_bCEFInitialized)
+	{
+		m_bCEFInitialized = FALSE;
+		CefShutdown();
+	}
+
 }
 

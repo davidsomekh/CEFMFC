@@ -28,6 +28,8 @@ public:
 	virtual int ExitInstance();
    virtual BOOL OnIdle(LONG lCount) override;
 
+   BOOL					m_bCEFInitialized;
+
 // Implementation
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
