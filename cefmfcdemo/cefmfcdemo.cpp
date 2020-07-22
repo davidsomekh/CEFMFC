@@ -204,10 +204,15 @@ void CefMfcdDemoApp::InitializeCef()
    CString sLog;
    sLog.Format(_T("C:/Cef/Log22.txt"));
 
+   CString agent;
+   agent.Format(_T("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"));
+
    CefString(&settings.cache_path) = szCEFCache;
    settings.no_sandbox = TRUE;
    settings.multi_threaded_message_loop = false;
    settings.log_severity = LOGSEVERITY_DEFAULT;
+
+   CefString(&settings.user_agent) = agent;
    CefString(&settings.log_file) = sLog;
       
    m_bCEFInitialized = CefInitialize(mainargs, settings, m_app, nullptr);
