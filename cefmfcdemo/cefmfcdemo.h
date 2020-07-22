@@ -26,7 +26,7 @@ public:
 public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
-   virtual BOOL PumpMessage() override;
+   virtual BOOL OnIdle(LONG lCount) override;
 
 // Implementation
 	afx_msg void OnAppAbout();
