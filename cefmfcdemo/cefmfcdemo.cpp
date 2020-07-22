@@ -136,13 +136,10 @@ int CefMfcdDemoApp::ExitInstance()
 	return CWinApp::ExitInstance();
 }
 
-BOOL CefMfcdDemoApp::PumpMessage()
+BOOL CefMfcdDemoApp::OnIdle(LONG lCount)
 {
-   auto result = CWinApp::PumpMessage();
-
-  CefDoMessageLoopWork();
-   
-   return result;
+	CefDoMessageLoopWork();
+	return CWinApp::OnIdle(lCount);
 }
 
 // CefMfcdDemoApp message handlers
